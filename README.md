@@ -33,16 +33,15 @@ A pipeline that extracts and verifies medicine information from bottle labels us
 - **Edits**: 6 substitutions + 3 insertions = 9
 - **CER**: `9/9 = 100%` → Needs fuzzy correction
 
-## Example Test Image
-
-![Test Image](D:\Pharma Project\data\input\Ibuprofen.jpg)
-
 **Sample Results**:
 Drug Name: WWELLGESICIV
 Manufacturer: SOLUTION
 Dosage: 100 ML
 Confidence: 90.0%
 
+### Example Test Image
+
+![alt text](image-1.png)
 
 ## Quick Start
 
