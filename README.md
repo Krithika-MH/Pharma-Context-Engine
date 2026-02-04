@@ -1,6 +1,6 @@
 # Intelligent Pharma Context Engine
 
-Production-ready pipeline that extracts and verifies medicine information from bottle labels using computer vision and OCR. Converts real-world images into structured drug data (name, manufacturer, dosage) with FDA/RxNorm validation.
+A pipeline that extracts and verifies medicine information from bottle labels using computer vision and OCR. Converts real-world images into structured drug data (name, manufacturer, dosage) with FDA/RxNorm validation.
 
 ## Architecture Summary
 
@@ -14,17 +14,6 @@ Production-ready pipeline that extracts and verifies medicine information from b
 
 **Verification**: FDA OpenFDA and RxNorm APIs validate extracted entities.
 
-## Performance Report
-
-| Metric              | rabies_test.jpg | Ibuprofen.jpg | Target   |
-|---------------------|-----------------|---------------|----------|
-| ROI Size            | 500×500         | 500×500       | Achieved |
-| OCR Regions         | 20              | 20            | 8-15 ✓   |
-| Processing Time     | 154s (CPU)      | 154s (CPU)    | Complete |
-| Entity Match Rate   | 90.0%           | 90.0%         | Achieved |
-| Pipeline Status     | success ✓       | success ✓     | 100%     |
-
-**CER**: Not computed (ground truth unavailable). Visual inspection confirms excellent text recovery across 20 OCR regions per image.
 
 **Sample Results**:
 Drug Name: WWELLGESICIV
