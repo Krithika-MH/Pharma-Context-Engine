@@ -36,41 +36,40 @@ Confidence: 90.0%
 ## Quick Start
 
 
-# 1. Clone 
+### 1. Clone 
 ```bash
 git clone https://github.com/YOUR_USERNAME/Pharma-OCR-Pipeline.git
 cd Pharma-OCR-Pipeline
 ```
-# 2. Create virtual environment
+### 2. Create virtual environment
+
+#### Windows
 ```bash
 python -m venv venv
 ```
-# Windows:
-```bash
-venv\Scripts\activate
-```
-# macOS/Linux:
+#### macOS/Linux:
 ```bash
 source venv/bin/activate
 ```
 
-# 3. Install dependencies
+### 3. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-# 4. Test pipeline
+### 4. Test pipeline
 ```bash
 python run_pipeline.py --image "data/input/test_image.jpg" --verbose
 ```
 
-#Expected Output
+## Expected Output
 OCR SUCCESS: 20 text regions extracted
 Entities: WWELLGESICIV | SOLUTION | 100 ML | 90.0%
 Status: success
 
-#Project Structure
+## Project Structure
 
+```text
 Pharma-OCR-Pipeline/
 ├── src/
 │   ├── __init__.py
@@ -85,8 +84,11 @@ Pharma-OCR-Pipeline/
 │   └── output/          # JSON results
 ├── requirements.txt     # Dependencies
 └── run_pipeline.py      # Entry point
+```
 
-#Technology Stack
+## Technology Stack
+
+```table
 
 | Component     | Technology          |
 | ------------- | ------------------- |
@@ -95,8 +97,9 @@ Pharma-OCR-Pipeline/
 | Preprocessing | OpenCV              |
 | APIs          | FDA OpenFDA, RxNorm |
 | Framework     | Python 3.8+         |
+```
 
-#Key Technical Decisions
+## Key Technical Decisions
 ROI Expansion: Critical fix expanded detection bounding boxes from 20x23px to 500x500px enabling OCR success
 
 Multi-stage OCR: 20 image enhancement techniques ensure text recovery from diverse lighting/angle conditions
@@ -105,9 +108,9 @@ Fuzzy Matching: Handles OCR noise (WWELLGESICIV → WELLGESIC interpretation)
 
 Production Error Handling: Full-image fallback prevents pipeline crashes
 
-#Output Format
+### Output Format
 
-json
+```bash
 {
   "medicine_information": {
     "name": "WWELLGESICIV",
@@ -123,8 +126,9 @@ json
     "entity_match_rate": 90.0
   }
 }
+```
 
-#Acknowledgments
+## Acknowledgments
 Roboflow Universe (project-ko6pf) medicine detection model
 
 EasyOCR for robust multilingual text recognition
@@ -132,3 +136,7 @@ EasyOCR for robust multilingual text recognition
 FDA OpenFDA API for drug verification
 
 RxNorm API for pharmaceutical terminology matching
+
+## Author 
+
+M Krithika
