@@ -21,7 +21,7 @@ A pipeline that extracts and verifies medicine information from bottle labels us
 
 | Metric | Value | Formula |
 |--------|-------|---------|
-| **CER** | **12.4%** | `(S+D+I)/N` [web:257] |
+| **CER** | **12.4%** | `(S+D+I)/N` |
 | **Entity Match Rate** | **85%** | Verified entities / Total extracted |
 | **Processing Time** | **204s** | End-to-end pipeline |
 | **Detection mAP** | **92%** | YOLOv8 (project-ko6pf) |
