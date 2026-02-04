@@ -64,7 +64,9 @@ python run_pipeline.py --image "data/input/test_image.jpg" --verbose
 
 ## Expected Output
 OCR SUCCESS: 20 text regions extracted
+
 Entities: WWELLGESICIV | SOLUTION | 100 ML | 90.0%
+
 Status: success
 
 ## Project Structure
@@ -100,13 +102,13 @@ Pharma-OCR-Pipeline/
 ```
 
 ## Key Technical Decisions
-ROI Expansion: Critical fix expanded detection bounding boxes from 20x23px to 500x500px enabling OCR success
+**ROI Expansion**: Critical fix expanded detection bounding boxes from 20x23px to 500x500px enabling OCR success
 
-Multi-stage OCR: 20 image enhancement techniques ensure text recovery from diverse lighting/angle conditions
+**Multi-stage OCR**: 20 image enhancement techniques ensure text recovery from diverse lighting/angle conditions
 
-Fuzzy Matching: Handles OCR noise (WWELLGESICIV → WELLGESIC interpretation)
+**Fuzzy Matching**: Handles OCR noise (WWELLGESICIV → WELLGESIC interpretation)
 
-Production Error Handling: Full-image fallback prevents pipeline crashes
+**Production Error Handling**: Full-image fallback prevents pipeline crashes
 
 ### Output Format
 
@@ -129,13 +131,13 @@ Production Error Handling: Full-image fallback prevents pipeline crashes
 ```
 
 ## Acknowledgments
-Roboflow Universe (project-ko6pf) medicine detection model
+**Roboflow Universe** (project-ko6pf) medicine detection model
 
-EasyOCR for robust multilingual text recognition
+**EasyOCR** for robust multilingual text recognition
 
-FDA OpenFDA API for drug verification
+FDA **OpenFDA** API for drug verification
 
-RxNorm API for pharmaceutical terminology matching
+**RxNorm** API for pharmaceutical terminology matching
 
 ## Author 
 
