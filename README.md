@@ -18,14 +18,14 @@ A pipeline that extracts and verifies medicine information from bottle labels us
 
 **Test Dataset**: 5 medicine label images (Ibuprofen.jpg, rabies_test.jpg, period.jpg)
 
-```table
+
 | Metric | Value | Formula |
 |--------|-------|---------|
 | **CER** | **12.4%** | `(S+D+I)/N` [web:257] |
 | **Entity Match Rate** | **85%** | Verified entities / Total extracted |
 | **Processing Time** | **204s** | End-to-end pipeline |
 | **Detection mAP** | **92%** | YOLOv8 (project-ko6pf) |
-```
+
 
 **CER Breakdown** (Ibuprofen.jpg):
 - **Reference**: "IBUPROFEN"
