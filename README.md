@@ -41,7 +41,7 @@ Confidence: 90.0%
 
 ### Example Test Image
 
-![Test Image](data\input\Ibuprofen.jpg)
+![Test Image](https://www.pharmavends.com/userspics/694dfac2cbca80a2ecec42c6ba687ca5.png)
 
 ## Quick Start
 
