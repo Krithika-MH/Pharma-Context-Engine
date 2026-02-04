@@ -24,3 +24,4 @@ asyncio
 pytest
 matplotlib
 seaborn
+fuzz

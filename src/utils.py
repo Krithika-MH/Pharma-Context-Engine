@@ -117,3 +117,16 @@ def create_visualization(image: np.ndarray,
         cv2.imwrite(output_path, vis_image)
     
     return vis_image
+
+    def calculate_cer(predicted: str, ground_truth: str) -> float:
+        """Calculate Character Error Rate (CER) = (S+D+I)/N [web:257]"""
+        if not ground_truth:
+            return 1.0
+        
+        # Levenshtein distance (S+D+I)
+        from Levenshtein import distance
+        edit_distance = distance(predicted, ground_truth)
+        
+        cer = edit_distance / len(ground_truth)
+        return cer * 100  # Percentage
+

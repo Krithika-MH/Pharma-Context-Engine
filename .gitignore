@@ -17,7 +17,7 @@ htmlcov/
 
 # --- Project Specific: Data & Cache ---
 # Ignore all input/output data but keep the folder structure
-data/input/*
+#data/input/*
 data/output/*
 data/cache/
 model_cache/

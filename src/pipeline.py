@@ -138,43 +138,50 @@ class PharmaContextPipeline:
 
 
             
-            # Stage 3: Text Extraction
+            # Stage 3: Text Extraction - BEST ROI ONLY (74min → 2min fix!)
             logger.info("Stage 3: Text Extraction")
             all_entities = []
-            
+
+            # SELECT BEST ROI (largest area * highest confidence)
+            best_roi_idx = 0
+            best_score = 0
+            h_roi, w_roi = processed_image.shape[:2]
+
             for idx, detection in enumerate(detections):
                 roi = detection.get("roi")
-                if roi is None:
-                    continue
+                confidence = detection.get("confidence", 0)
+                h, w = roi.shape[:2]
+                area_score = w * h * confidence  # Bigger + confident = better
                 
-                # Extract text
-                text_results = self.extractor.extract_text(roi)
-                
-                # Extract barcodes
-                barcodes = self.extractor.extract_barcode(roi)
-                
-                # Recognize entities
-                entities = self.extractor.recognize_entities(text_results)
-                entities["barcodes"] = barcodes
-                entities["detection_confidence"] = detection["confidence"]
-                
-                all_entities.append(entities)
-            
+                if area_score > best_score:
+                    best_score = area_score
+                    best_roi_idx = idx
+                    logger.info(f"ROI[{idx}] selected: {w}x{h} conf={confidence:.2f} score={area_score:.0f}")
+
+            # PROCESS ONLY BEST ROI
+            best_detection = detections[best_roi_idx]
+            best_roi = best_detection["roi"]
+            logger.info(f"PROCESSING BEST ROI ONLY: {best_roi.shape}")
+
+            text_results = self.extractor.extract_text(best_roi)
+            barcodes = self.extractor.extract_barcode(best_roi)
+            entities = self.extractor.recognize_entities(text_results)
+            entities["barcodes"] = barcodes
+            entities["detection_confidence"] = best_detection["confidence"]
+
+            all_entities = [entities]  # Single best result
+
             result["pipeline_stages"]["extraction"] = {
                 "status": "success",
-                "num_entities_extracted": len(all_entities)
+                "num_entities_extracted": 1,
+                "best_roi_index": best_roi_idx,
+                "best_roi_size": f"{best_roi.shape[1]}x{best_roi.shape[0]}"
             }
-            
-            # Select best entity set (highest confidence)
-            if all_entities:
-                best_entities = max(
-                    all_entities, 
-                    key=lambda x: x.get("detection_confidence", 0)
-                )
-            else:
-                raise ValueError("No entities extracted")
-            
+
+            # Best entity is now the single processed result
+            best_entities = entities
             result["extracted_entities"] = best_entities
+
             
             # Stage 4: Verification
             logger.info("Stage 4: Data Verification")
