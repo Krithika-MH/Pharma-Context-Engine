@@ -35,26 +35,34 @@ Confidence: 90.0%
 
 ## Quick Start
 
+
+# 1. Clone 
 ```bash
-# 1. Clone repository
 git clone https://github.com/YOUR_USERNAME/Pharma-OCR-Pipeline.git
 cd Pharma-OCR-Pipeline
-
+```
 # 2. Create virtual environment
+```bash
 python -m venv venv
+```
 # Windows:
+```bash
 venv\Scripts\activate
+```
 # macOS/Linux:
+```bash
 source venv/bin/activate
+```
 
 # 3. Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
 # 4. Test pipeline
-python run_pipeline.py --image "data/input/rabies_test.jpg" --verbose
-
-# 5. Test second image
-python run_pipeline.py --image "data/input/Ibuprofen.jpg" --verbose
+```bash
+python run_pipeline.py --image "data/input/test_image.jpg" --verbose
+```
 
 #Expected Output
 OCR SUCCESS: 20 text regions extracted
