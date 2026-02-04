@@ -1,0 +1,51 @@
+# --- Environment & Secrets ---
+.env
+.env.local
+.venv/
+venv/
+ENV/
+env/
+
+# --- Python & Bytecode ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- Project Specific: Data & Cache ---
+# Ignore all input/output data but keep the folder structure
+data/input/*
+data/output/*
+data/cache/
+model_cache/
+!data/input/.gitkeep
+!data/output/.gitkeep
+
+# --- Models ---
+# Large weights should not be in Git
+models/*.pt
+models/*.pth
+models/*.onnx
+models/*.weights
+!models/.gitkeep
+
+# --- Media & Logs ---
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.log
+*.pdf
+
+# --- Editor & OS Junk ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# --- Dependencies ---
+node_modules/

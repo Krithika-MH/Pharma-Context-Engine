@@ -1,0 +1,12 @@
+names:
+- '0'
+nc: 1
+roboflow:
+  license: CC BY 4.0
+  project: medicine-bottle
+  url: https://universe.roboflow.com/project-ko6pf/medicine-bottle/dataset/1
+  version: 1
+  workspace: project-ko6pf
+test: ../test/images
+train: ../train/images
+val: ../valid/images
