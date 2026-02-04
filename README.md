@@ -41,8 +41,7 @@ Confidence: 90.0%
 
 ### Example Test Image
 
-![Test Image](https://www.pharmavends.com/userspics/694dfac2cbca80a2ecec42c6ba687ca5.png)
-
+<img src="https://www.pharmavends.com/userspics/694dfac2cbca80a2ecec42c6ba687ca5.png" alt="Alt text" width="300"/>
 ## Quick Start
 
 
