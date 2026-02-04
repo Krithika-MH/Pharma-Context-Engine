@@ -41,7 +41,7 @@ Confidence: 90.0%
 
 ### Example Test Image
 
-![alt text](image-1.png)
+![Test Image](data\input\Ibuprofen.jpg)
 
 ## Quick Start
 
